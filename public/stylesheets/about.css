@@ -1,0 +1,35 @@
+.about {
+  display: flex;
+  justify-content: center;
+}
+
+.about__container {
+  width: 50%;
+  padding: 20px;
+}
+
+.about__title {
+  text-align: center;
+}
+
+.about__info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about__info-list-item {
+  margin-bottom: 10px;
+}
+
+.about__contacts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about__contacts-list-item {
+  margin-bottom: 10px;
+}
+
+.about__rights {
+  text-align: center;
+}

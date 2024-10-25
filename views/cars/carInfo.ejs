@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/stylesheets/car.css">
+	<title>
+		<%= car.brand %> : <%= car.model %>
+	</title>
+</head>
+
+<body>
+	<section class='car'>
+		<div class='car__container'>
+			<ul class='car__info-list'>
+				<li class='car__info-item'>
+					<span>Марка: </span>
+					<span>
+						<%= car.brand %>
+					</span>
+				</li>
+				<li class='car__info-item'>
+					<span>Модель: </span>
+					<span>
+						<%= car.model %>
+					</span>
+				</li>
+				<li class='car__info-item'><span>Рік: </span>
+					<span>
+						<%= car.year %>
+					</span>
+				</li>
+				<li class='car__info-item'><span>Коробка: </span>
+					<span>
+						<%= car.transmission %>
+					</span>
+				</li>
+				<li class='car__info-item'><span>Ціна: </span>
+					<span>
+						<%= car.price %> $
+					</span>
+				</li>
+			</ul>
+			<div class='car__image'>
+				<img src="/images/<%= car.image %>" alt="<%= car.brand %>-<%= car.model %>">
+			</div>
+			<a class='car__back' href="/cars">Назад</a>
+		</div>
+	</section>
+</body>
+
+</html>

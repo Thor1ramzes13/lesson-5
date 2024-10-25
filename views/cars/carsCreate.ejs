@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= car.id ? 'Редагувати автомобіль' : 'Новий автомобіль' %>  </title>
+	<link rel="stylesheet" href="/stylesheets/create-car.css">
+	<script src="/javascripts/requestManager.js"></script>
+	<script>
+		function onInputFile(event) {
+			RequestManager.handleFileSelect(event, '#imgPrew');
+		}
+	</script>
+</head>
+
+<body>
+	<section class="create">
+		<div class="create__container">
+			<a class="create__back" href="/cars">Назад</a>
+			<h1 class='create__title'><%= car.id ? 'Редагувати автомобіль' : 'Додати новий автомобіль' %></h1>
+			<form class='create__form'  action="<%= car.id ? '/cars/edit/' + car.id + '?_method=PUT' : '/cars/create' %>" enctype='multipart/form-data' method="POST">
+				<div class="create__form-items">
+					<div class='create__form-item'>
+						<label for="brand">Бренд автомобіля</label>
+						<input type="text" name="brand" placeholder="Car Brand" value="<%= car.brand %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="model">Модель автомобіля</label>
+						<input type="text" name="model" placeholder="Car Model" value="<%= car.model %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="transmission">Коробка передач</label>
+						<input type="text" name="transmission" placeholder="Car Transmission" value="<%= car.transmission %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="year">Рік випуску</label>
+						<input type="number" name="year" placeholder="Car Year" value="<%= car.year %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="number">Ідентифікаційний номер</label>
+						<input type="text" name="number" placeholder="Car Number" value="<%= car.number %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="price">Ціна</label>
+						<input type="number" name="price" placeholder="Car Price" value="<%= car.price %>">
+					</div>
+					<div class='create__form-item'>
+						<label for="image">Фото</label>
+						<input type="file" name="image" placeholder="Car Image" accept='image/*' value="<%= car.image %>" onchange='onInputFile(event)'>
+					</div>
+					<div class='create__form-image'>
+						<img id='imgPrew' src="<%= car.image ? '/images/' + car.image : '/images/no-img.jpg' %>" alt='uploaded' class='create__form-img'/>
+					</div>
+				</div>
+				<div class="create__form-controls">
+					<button type="submit" class="button"><%= car.id ? 'Редагувати' : 'Додати' %></button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+
+</html>

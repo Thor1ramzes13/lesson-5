@@ -1,0 +1,84 @@
+.cars-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	padding: 5px;
+	font-size: 18px;
+}
+
+.cars-list__item {
+	display: flex;
+	flex: 1 1 25%;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+	background-color: #fff;
+}
+
+.cars-list__item-body {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.cars-list__item-link {
+
+	text-decoration: none;
+	color: #7930ee;
+}
+
+.cars-list__item-link:hover {
+	color: #337ab7;
+}
+
+.cars-list__controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cars-list__item-button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.cars-list__item-button:hover {
+	background-color: #3e8e41;
+}
+
+.cars-list__item-button:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.cars-list__add-button {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+.cars-list__add-button:hover {
+	background-color: #0056b3;
+}
+
+.cars-list__add-button:active {
+	background-color: #0056b3;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}

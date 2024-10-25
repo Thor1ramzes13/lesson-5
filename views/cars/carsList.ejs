@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/cars-list.css' />
+    <script src="/javascripts/requestManager.js"></script>
+    <script>
+        async function onItemDelete(id) {
+            try {
+                const response = await fetch('/cars/', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id }),
+                })
+
+                if (response.ok) {
+                    console.log('Car deleted successfully')
+                    // Перенаправлення на список товарів після видалення
+                    window.location.href = '/cars'
+                } else {
+                    console.error('Failed to delete car')
+                }
+            } catch (error) {
+                console.error('Error:', error)
+            }
+        }
+    </script>
+    <title>Наші автомобілі</title>
+</head>
+
+<body>
+    <hr>
+    <a class="cars-list__add-button" href="/cars/create">Add Car</a>
+    <hr>
+    <div class="cars-list">
+        <%cars.forEach(car=> {%> <div class="cars-list__item">
+                <div class="cars-list__item-body">
+                    <a class="cars-list__item-link" href="/cars/<%=car.id%>">
+                        <%=car.brand%>
+                    </a>
+                    <span>
+                        <%=car.year%> year
+                    </span>
+                </div>
+                <div class="cars-list__controls">
+                    <a href="/cars/edit/<%=car.id%>" class="cars-list__item-button">Edit</a>
+                    <button type='button' onclick="onItemDelete('<%=car.id%>')" class="cars-list__item-button">Delete</button>
+                </div>
+            </div>
+            <%})%>
+    </div>
+    <hr>
+    <a class="cars-list__back" href="/">На головну</a>
+    <hr>
+</body>
+
+</html>
